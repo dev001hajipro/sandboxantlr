@@ -5,39 +5,32 @@ grammar CSV;
 	package com.github.dev001hajipro.lang.csv;
 }
 
-file
-:
+file:
 	header row+
-;
+	;
 
-header
-:
-	row
-;
+// header: row; と書けるが、パーサー側でヘッダー読み込みとデータ読み込みを
+// 
 
-row
-:
-	field
-	(
-		',' field
-	)* '\r'? '\n'
-;
+header:
+	field (',' field)* '\r'? '\n'
+	;
 
-field
-:
+row:
+	field (',' field)* '\r'? '\n'
+	;
+
+field:
 	TEXT
 	| STRING
 	| 
-;
+	;
 
 // TOKEN /////
 
 // TEXTは、,\r\n"以外の1文字以上
 
-TEXT
-:
-	~[,\n\r"]+
-;
+TEXT: ~[,\n\r"]+	;
 
 // '"'で、ダブルクォート
 // CSVでは、"hello"のように、文字列は""で囲む。
@@ -46,14 +39,7 @@ TEXT
 // つまり、'""'は、文字列中のエスケープされたダブルクォートを意味する
 // ~'"'は、"以外の文字を意味する。
 
-STRING
-:
-	'"'
-	(
-		'""'
-		| ~'"'
-	)* '"'
-;
+STRING: '"' ('""' | ~'"')* '"';
 	
 
 
