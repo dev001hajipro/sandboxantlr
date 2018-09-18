@@ -12,6 +12,9 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <java.version>1.8</java.version>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
   </properties>
 
   <dependencies>
@@ -21,5 +24,11 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.antlr/antlr4 -->
+	<dependency>
+	    <groupId>org.antlr</groupId>
+	    <artifactId>antlr4</artifactId>
+	    <version>4.7.1</version>
+	</dependency>
   </dependencies>
 </project>
