@@ -25,8 +25,10 @@ githubに完成したプロジェクトがあります。
 
 ## Antlr is there a simple example? (stackoverflow)
 
-Antlrは、.g4ファイルに関数を埋め込むことができます。この記事で基礎や用語を学び
-Google検索すれば仕組みが分かってくるはずです。
+Antlr3でExp.gで電卓を作るサンプルだけれど、注意深く実装すればExp.g4が作れます。
+.g4で生成したリスナーやビジターを使わずに、.g4内でJavaコードを書く実装です。
+
+実際にExp.g4を実装して動かしてみましたが、ビジターの実装の方が綺麗です。
 
 - https://stackoverflow.com/questions/1931307/antlr-is-there-a-simple-example
 
@@ -46,10 +48,6 @@ Google検索すれば仕組みが分かってくるはずです。
 
 .g4ファイルへの関数埋め込みサンプル。
 関数埋め込みを行わない場合、visitかイベントリスナーで処理を実装します。
-
-## 日本語
-
-- [オレオレJVM言語を作ろう！ How to create a new JVM language](https://www.sakatakoichi.com/entry/2017/07/18/193000) 
 
 ## Mega
  
@@ -88,3 +86,8 @@ stat :
 ```
 
 - https://stackoverflow.com/questions/23092081/antlr4-visitor-pattern-on-simple-arithmetic-example
+
+## 日本語
+
+- [オレオレJVM言語を作ろう！ How to create a new JVM language](https://www.sakatakoichi.com/entry/2017/07/18/193000) 
+

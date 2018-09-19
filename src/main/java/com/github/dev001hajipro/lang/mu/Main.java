@@ -19,7 +19,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		try {
-			Path path = Paths.get("data/test1.mu");
+			Path path = Paths.get("data/test.mu");
 			MuLexer lexer = new MuLexer(CharStreams.fromPath(path));
 			MuParser parser = new MuParser(new CommonTokenStream(lexer));
 			ParseTree tree = parser.parse(); // .parseは、.g4の最初に書かれたルール
