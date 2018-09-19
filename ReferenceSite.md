@@ -4,9 +4,9 @@
 
 - [Antlr is awesome](http://niels.nu/blog/2015/antlr-is-awesome.html)
 
-Antlr4で電卓を作るチュートリアル。visit関数を再帰で呼び出して処理を行っていく。
-githubに完成したプロジェクトがあり、文章も短いので、はじめて試すのによい。
-
+はじめてAntlr4をやる人にお勧めのチュートリアル。
+電卓を作り、visit関数を再帰で呼び出して動作します。
+githubに完成したプロジェクトがあります。
 
 # antlr4を使う
 
@@ -16,25 +16,23 @@ githubに完成したプロジェクトがあり、文章も短いので、は�
 - [antlr4を使う(1)](http://blog.seamark.co.jp/?p=353)
 - [antlr4を使う(2)](http://blog.seamark.co.jp/?p=392) 
 
-
 ## How to Create a Programming Language Using ANTLR4
 
 - [How to Create a Programming Language Using ANTLR4](https://progur.com/2016/09/how-to-create-language-using-antlr4.html)
 
-変数定義、代入、Printのみの簡単なプログラミング言語GYOOを作るチュートリアル
-Antlr4で変数を用意した場合どのように保持すればよいか学べる。
+変数定義、代入、Printのみの簡単なプログラミング言語GYOOを作るチュートリアル。
+変数の保持方法を学べます。
 
+## Antlr is there a simple example? (stackoverflow)
 
-## Simple Sample.
+Antlrは、.g4ファイルに関数を埋め込むことができます。この記事で基礎や用語を学び
+Google検索すれば仕組みが分かってくるはずです。
 
-Exp.gは、Antlr4版もgithubにあり、基本のあと、.gファイルの拡張方法も解説している。
 - https://stackoverflow.com/questions/1931307/antlr-is-there-a-simple-example
-
-
 
 ## C3PO
 
-シンプルな関数型プログラミング言語C3POを作る。
+シンプルな関数型プログラミング言語C3POを作成
 
 - [Parsing your own language with ANTLR4](https://medium.com/@fwouts/a-quick-intro-to-antlr4-5f4f35719823)
 
@@ -42,7 +40,12 @@ Exp.gは、Antlr4版もgithubにあり、基本のあと、.gファイルの拡�
 
 - https://keis-software.com/2015/10/19/introduction-to-antlr/
 - https://keis-software.com/2015/11/16/introduction-to-antlr-pt-2/
-- https://keis-software.com/2016/01/18/introduction-to-antlr-pt-3/
+
+
+* https://keis-software.com/2016/01/18/introduction-to-antlr-pt-3/
+
+.g4ファイルへの関数埋め込みサンプル。
+関数埋め込みを行わない場合、visitかイベントリスナーで処理を実装します。
 
 ## 日本語
 
@@ -51,3 +54,37 @@ Exp.gは、Antlr4版もgithubにあり、基本のあと、.gファイルの拡�
 ## Mega
  
 - https://tomassetti.me/antlr-mega-tutorial/
+
+大きめのチュートリアル。いろんな言語で動かすのは良いが、その分他の言語の知識や
+環境構築が必要になるのでちょっと面倒。
+
+## ANTLR v4 の文法ファイルのサンプル
+
+- http://iwsttty.hatenablog.com/entry/2014/05/11/175728
+
+## antlr/grammars-v4 
+
+Grammars written for ANTLR v4; expectation that the grammars are 
+free of actions.
+
+- https://github.com/antlr/grammars-v4
+
+## if-else-statements-in-antlr-using-listeners
+
+Visitorを使ったif,whileのあるプログラミング言語作成のチュートリアル。stackoverflowの返答で短い。
+
+- https://stackoverflow.com/questions/15610183/if-else-statements-in-antlr-using-listeners
+- https://github.com/bkiers/Mu
+
+## .g4での#マークは、コメントではなくコード生成のヒント
+
+下記のように、パーサールールに#を付けると、ビジターで、visitStatではなく、
+visitStringOpr, visitIdOprが用意されます。
+```g4
+stat :
+	STRING  #stringOpr
+	| ID    #idOpr
+	;
+```
+
+- https://stackoverflow.com/questions/23092081/antlr4-visitor-pattern-on-simple-arithmetic-example
