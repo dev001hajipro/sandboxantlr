@@ -91,3 +91,35 @@ stat :
 
 - [オレオレJVM言語を作ろう！ How to create a new JVM language](https://www.sakatakoichi.com/entry/2017/07/18/193000) 
 
+## Lexerのモードについて
+
+HTMLは、タグの外のコンテンツとタグの中の属性定義などがあります。このような場合、
+IN_MODEとOUT_MODEを定義して、開始タグ<があったら、IN_MODEになり、終了タグ>で
+OUT_MODEになるようにしておくと、Lexerのトークンが綺麗に分けられます。
+
+ただし、この機能を使う場合は、ParserとLexerのg4ファイルを別にする必要があります。
+
+
+```g4
+// Lexer.g4
+lexer grammer MyLexer;
+BEGIN_TAG		: '<' -> pushMode(IN_MODE);
+END_TAG			: '>' -> popMode;
+
+mode IN_MODE; // モード定義
+...
+
+mode OUT_MODE;
+...
+```
+
+```g4
+// Parser.g4
+parser grammer MyParser;
+options {
+	tokenVocab=MyLexer;
+}
+
+```
+
+- http://iwsttty.hatenablog.com/entry/2014/05/11/175728

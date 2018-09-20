@@ -1,4 +1,6 @@
 // https://stackoverflow.com/questions/1931307/antlr-is-there-a-simple-example
+// Altr4版のサンプル
+// https://github.com/BITPlan/com.bitplan.antlr/blob/master/src/main/antlr4/com/bitplan/exp/Exp.g4
 
 grammar Exp;
 
