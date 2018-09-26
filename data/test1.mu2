@@ -18,6 +18,4 @@ while c < 5 {
 	log c;
 }
 
-
-
 log "Done!";
